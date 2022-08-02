@@ -41,12 +41,13 @@ func _draw():
 		draw_texture_rect(background_texture, rect, false)
 		draw_texture_rect(analog_texture, Rect2(_m / 4, _m / 2), false)
 	
-	var rect := Rect2(Vector2.ZERO, min_rect_size)
-	draw_texture_rect(background_texture, rect, false)
+	else:
+		var rect := Rect2(Vector2.ZERO, min_rect_size)
+		draw_texture_rect(background_texture, rect, false)
 	
-	var analog_pos = (drag_direction * center_position) + center_position
-	var analog_rect := Rect2(analog_pos - (analog_size / 2), analog_size)
-	draw_texture_rect(analog_texture, analog_rect, false)
+		var analog_pos = (drag_direction * center_position) + center_position
+		var analog_rect := Rect2(analog_pos - (analog_size / 2), analog_size)
+		draw_texture_rect(analog_texture, analog_rect, false)
 
 
 func _input(event):
