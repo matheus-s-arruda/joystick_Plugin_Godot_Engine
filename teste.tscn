@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/joystick_control/joysctick.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+
+
+var motion : Vector2
+
+
+func _physics_process(_delta):
+	position += motion * 20.0
+
+
+
+func _on_JoyStick_drag_position(_position):
+	motion = _position
+"
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="CanvasLayer" parent="."]
+
+[node name="JoyStick" type="Control" parent="Control"]
+margin_left = 53.0
+margin_top = 404.0
+margin_right = 191.0
+margin_bottom = 540.0
+script = ExtResource( 1 )
+background_texture = ExtResource( 2 )
+analog_texture = ExtResource( 2 )
+
+[node name="Icon" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 465, 251 )
+texture = ExtResource( 2 )
+script = SubResource( 1 )
+
+[connection signal="drag_position" from="Control/JoyStick" to="Icon" method="_on_JoyStick_drag_position"]

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="12"
+   height="12"
+   viewBox="0 0 3.1749999 3.175"
+   version="1.1"
+   id="svg253"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview255"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="27.665128"
+     inkscape:cx="7.73537"
+     inkscape:cy="9.0366471"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs250" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path231"
+       style="opacity:1;fill:#a5efac;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.225;stroke-linecap:square"
+       d="M 1.5875,0 A 1.5875,1.5875 0 0 0 0,1.5875 1.5875,1.5875 0 0 0 1.5875,3.175 1.5875,1.5875 0 0 0 3.175,1.5875 1.5875,1.5875 0 0 0 1.5875,0 Z M 1.5743225,0.25192261 A 1.3367849,1.3486571 0 0 1 2.9110626,1.6006775 1.3367849,1.3486571 0 0 1 1.5743225,2.9494324 1.3367849,1.3486571 0 0 1 0.2375824,1.6006775 1.3367849,1.3486571 0 0 1 1.5743225,0.25192261 Z" />
+    <rect
+       style="opacity:1;fill:#8dcc94;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.184529;stroke-linecap:square"
+       id="rect2406"
+       width="0.39012563"
+       height="0.84606141"
+       x="2.0493176"
+       y="-0.44918892"
+       rx="0.19506282"
+       transform="rotate(48.444001)"
+       ry="0.22511797" />
+    <circle
+       style="opacity:1;fill:#b0efb7;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.225;stroke-linecap:square"
+       id="path2298"
+       cx="1.0856527"
+       cy="2.0695481"
+       r="0.61090273" />
+  </g>
+</svg>
