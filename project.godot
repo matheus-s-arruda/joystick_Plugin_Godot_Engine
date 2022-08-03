@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="joystick_control_plugin"
+run/main_scene="res://teste.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]

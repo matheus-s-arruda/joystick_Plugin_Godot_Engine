@@ -25,6 +25,7 @@ func _on_JoyStick_drag_position(_position):
 [node name="Control" type="CanvasLayer" parent="."]
 
 [node name="JoyStick" type="Control" parent="Control"]
+visible = false
 margin_left = 53.0
 margin_top = 404.0
 margin_right = 191.0
