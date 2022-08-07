@@ -1,5 +1,5 @@
 tool
-extends Control
+extends "res://addons/joystick_control/click_control.gd"
 
 signal drag_position(position)
 
@@ -9,7 +9,6 @@ export(float, 0.0, 1.0) var analog_radius := 0.5 setget _refresh
 
 var drag_direction : Vector2
 
-var touch_id := -1
 var can_drag := true
 var dragging := false
 
@@ -20,8 +19,8 @@ onready var analog_size := min_rect_size * analog_radius
 
 
 func _init():
-	if not is_connected("gui_input", self, "_gui_input"):
-		connect("gui_input", self, "_gui_input")
+	if not Engine.editor_hint:
+		connect("clicked", self, "_handle_click")
 
 
 func _refresh(value):
@@ -44,22 +43,23 @@ func _draw():
 	else:
 		var rect := Rect2(Vector2.ZERO, min_rect_size)
 		draw_texture_rect(background_texture, rect, false)
-	
+		
 		var analog_pos = (drag_direction * center_position) + center_position
 		var analog_rect := Rect2(analog_pos - (analog_size / 2), analog_size)
 		draw_texture_rect(analog_texture, analog_rect, false)
 
 
 func _input(event):
-	if event is InputEventScreenTouch and not event.is_pressed() and touch_id == event.index:
+	if event is InputEventScreenTouch and not event.is_pressed() and touch_idx == event.index:
 		dragging = false
 		drag_direction = Vector2.ZERO
 		
 		update()
 		emit_signal("drag_position", drag_direction)
 	
-	if can_drag and dragging and event is InputEventScreenDrag and touch_id == event.index:
+	if can_drag and dragging and event is InputEventScreenDrag and touch_idx == event.index:
 		drag_direction = (event.position - rect_global_position - center_position) / center_position
+		
 		if drag_direction.length() > 1.0:
 			drag_direction = drag_direction.normalized()
 		
@@ -67,8 +67,8 @@ func _input(event):
 		emit_signal("drag_position", drag_direction)
 
 
-func _gui_input(event: InputEvent):
-	if event is InputEventScreenTouch and event.is_pressed():
-		dragging = true
-		touch_id = event.index
+func _handle_click(value: bool):
+	modulate.a = 0.3 + (0.7 * float(value))
+	dragging = value
+
 
