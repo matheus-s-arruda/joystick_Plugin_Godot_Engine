@@ -8,8 +8,6 @@ export(Texture) var analog_texture : Texture
 export(float, 0.0, 1.0) var analog_radius := 0.5 setget _refresh
 
 var drag_direction : Vector2
-
-var can_drag := true
 var dragging := false
 
 onready var min_size := min(rect_size.x, rect_size.y)
@@ -49,26 +47,30 @@ func _draw():
 		draw_texture_rect(analog_texture, analog_rect, false)
 
 
-func _input(event):
-	if event is InputEventScreenTouch and not event.is_pressed() and touch_idx == event.index:
-		dragging = false
-		drag_direction = Vector2.ZERO
-		
-		update()
-		emit_signal("drag_position", drag_direction)
+func _input(event: InputEvent):
+	if not can_click or touch_idx == -1: return
 	
-	if can_drag and dragging and event is InputEventScreenDrag and touch_idx == event.index:
+	if event is InputEventScreenDrag and touch_idx == event.index:
 		drag_direction = (event.position - rect_global_position - center_position) / center_position
 		
 		if drag_direction.length() > 1.0:
 			drag_direction = drag_direction.normalized()
 		
-		update()
-		emit_signal("drag_position", drag_direction)
+		atualize_position(drag_direction)
+	
+	elif event is InputEventScreenTouch and not event.is_pressed() and touch_idx == event.index:
+		touch_idx = -1
+		drag_direction = Vector2.ZERO
+		atualize_position(drag_direction)
+
+
+func atualize_position(position: Vector2):
+	emit_signal("drag_position", position)
+	get_tree().set_input_as_handled()
+	update()
 
 
 func _handle_click(value: bool):
-	modulate.a = 0.3 + (0.7 * float(value))
 	dragging = value
 
 
