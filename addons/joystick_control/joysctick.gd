@@ -1,7 +1,7 @@
 tool
 extends "res://addons/joystick_control/click_control.gd"
 
-signal drag_position(position)
+signal drag_position(direction)
 
 export(Texture) var background_texture : Texture
 export(Texture) var analog_texture : Texture
